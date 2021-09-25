@@ -1,6 +1,17 @@
 :root {
-    --darkbackground, #583D72;
-    --lightbackground, #FF8474;
-    --darktext, #9F5F80;
-    --lighttext, #FFC996;
+    --darkbackground: #583D72;
+    --lightbackground: #FF8474;
+    --darktext: #9F5F80;
+    --lighttext: #FFC996;
+    --color-hover: blue;
+    --font-fam: 'Courier New', Courier, monospace;
+    --shadow-color: purple;
+}
+
+body {
+    background-color: var(--darkbackground);
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }

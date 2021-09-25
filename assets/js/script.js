@@ -7,6 +7,6 @@
 // TODO: when incorrect have time subtracted from timer
 // TODO: end game condition leads to score screen when initials can be stored
 // TODO: log initials and score to string and save to local storage so they can return to game
-// TODO: go to high score screen, pull from local storage to display records
+// TODO: auto go to high score screen, pull from local storage to display records
 // TODO: have link that can view high score at any time (optional) also button that clears high score (optional)
-// TODO: on high score screen have button to start quiz which will start function repeat quiz
+// TODO: on high score screen have button to start quiz which will start function to repeat quiz

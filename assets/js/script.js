@@ -1,7 +1,9 @@
 // TODO: starting screen with button to select start
 // TODO: have listener to watch for button press to start timer and display first question
 // TODO: write at least 10 different question with 4 possible answers ?data strings so that i can update ordered list in html
-// TODO: make sure that correct answers are not in same location on list
+// TODO: make sure that correct answers are not in same location on list 
+    // (create a class for each answer and each display could have true or false value)
+    // depending on the answer it will either add to score or remove time from counter
 // TODO: have listener on container to look for button press of answer
 // TODO: when correct answers are selected have score added to running total
 // TODO: when incorrect have time subtracted from timer

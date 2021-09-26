@@ -15,27 +15,89 @@ function setTimer() {
         if(secondsLeft === 0) {
             clearInterval(timerCount);
             displayResults();
-        }
+        } 
     }, 1000);
 }
 
+// write at least 5 different question with 4 possible answers ?data strings so that i can update ordered list in html
+var question = document.getElementById("question");
+var firstAnswer = document.getElementById("first-answer");
+var secondAnswer = document.getElementById("second-answer");
+var thirdAnswer = document.getElementById("third-answer");
+var forthAnswer = document.getElementById("forth-answer");
 
-startButton.addEventListener("click", function() {
+startButton.addEventListener("click", function firstQuestion() {
+    score = 0;
     document.getElementById("starting-page").style.display = "none";
     document.getElementById("question-page").style.display = "block";
-    setTimer()
+    setTimer();
+
+    question.textContent = question.getAttribute("data-q1");
+    firstAnswer.textContent = firstAnswer.getAttribute("data-a1");
+    secondAnswer.textContent = secondAnswer.getAttribute("data-a1");
+    thirdAnswer.textContent = thirdAnswer.getAttribute("data-a1");
+    forthAnswer.textContent = forthAnswer.getAttribute("data-a1");
 })
 
-// TODO: write at least 5 different question with 4 possible answers ?data strings so that i can update ordered list in html
 
-// TODO: make sure that correct answers are not in same location on list ?possible set values of different answers to ture or false
-    // (create a class for each answer and each display could have true or false value)
-    // depending on the answer it will either add to score or remove time from counter
-// TODO: have listener on container to look for button press of answer
-// TODO: when correct answers are selected have score added to running total
-// TODO: when incorrect have time subtracted from timer
+
+// depending on the answer it will either add to score or remove time from counter
+// have listener on container to look for button press of answer
+// when correct answers are selected have score added to running total
+// when incorrect have time subtracted from timer
+// TODO: if possible i would like to get an alert sound here or at least change color to indicate time is removed
+var score = 0;
+var answers = document.querySelector(".answers");
+
+answers.addEventListener("click", function(event) {
+    let answer = event.target;
+    let correct = answer.getAttribute("data-a1");
+
+    if (correct === "3. Mocha") {
+        score++;
+        secondQuestion();
+    } else { 
+        secondsLeft = (secondsLeft - 5);
+        alert("Oh no!!!\nWhere did those 5 seconds go!!!");
+    }
+    return
+});   
+
+// Question number 2
+function secondQuestion() {
+    question.textContent = question.getAttribute("data-q2");
+    firstAnswer.textContent = firstAnswer.getAttribute("data-a2");
+    secondAnswer.textContent = secondAnswer.getAttribute("data-a2");
+    thirdAnswer.textContent = thirdAnswer.getAttribute("data-a2");
+    forthAnswer.textContent = forthAnswer.getAttribute("data-a2");
+}
+
+answers.addEventListener("click", function(event) {
+    let answer = event.target;
+    let correct = answer.getAttribute("data-a2");
+
+    if (correct === "1. ( )") {
+        score++;
+        // thirdQuestion();
+    } if (correct !== "1. ( )") { 
+        secondsLeft = (secondsLeft - 5);
+        alert("Oh no!!!\nWhere did those 5 seconds go!!!");
+    }
+}); 
+
+
+
 // TODO: end game condition leads to score screen when initials can be stored
 // TODO: log initials and score to string and save to local storage so they can return to game
 // TODO: auto go to high score screen, pull from local storage to display records
 // TODO: have link that can view high score at any time (optional) also button that clears high score (optional)
 // TODO: on high score screen have button to start quiz which will start function to repeat quiz
+
+
+
+
+
+// make sure that correct answers are not in same location on list ?possible set values of different answers to true or false
+    // (create a class for each answer and each display could have true or false value)
+        // Ended up setting up data- attributs and then selecting which attributes i need to select
+   

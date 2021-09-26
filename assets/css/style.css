@@ -28,6 +28,11 @@ body {
     display: none;
 }
 
+.answers {
+    margin: 30px;
+    padding: 20px;
+}
+
 #result-page {
     display: none;
 }

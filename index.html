@@ -23,14 +23,40 @@
             </p>
             <button class="start-button" type="button">Start Quiz!!!</button>
         </section>
-<!-- another section for the questions -->
+<!-- another section for the questions (start with the first queston displayed)-->
         <section id="question-page">
-            <h3 class="question">question goes here</h3>
-            <ol>
-                <li>answer 1</li>
-                <li>answer 2</li>
-                <li>answer 3</li>
-                <li>answer 4</li>
+            <h3 class="question"
+                data-q1="What was JavaScript initially called?"
+                data-q2="In a function what do you put the parameters within"
+                data-q3="Who created JavaScript"
+                data-q4="Which Method returns string to upper case"
+                data-q5="Is JavaScript of frontend or backend Language">
+            </h3>
+            <ol class="answers">
+                <li class="first-answer" 
+                    data-a1="Vinilla"
+                    data-a2="( )"
+                    data-a3="James Gosling"
+                    data-a4="toUpper()"
+                    data-a5="Frontend"></li>
+                <li class="second-answer" 
+                    data-a1="Caramel"
+                    data-a2="{ }"
+                    data-a3="Erik Gustuson"
+                    data-a4="toUpperCase()"
+                    data-a5="Backend"></li>
+                <li class="third-answer" 
+                    data-a1="Mocha"
+                    data-a2="[ ]"
+                    data-a3='Yukihiro "Matz" Matsumoto'
+                    data-a4="changeCase(upper)"
+                    data-a5="neither"></li>
+                <li class="forth-answer" 
+                    data-a1="Latte"
+                    data-a2='" "'
+                    data-a3="Brendan Eich"
+                    data-a4="None of the above"
+                    data-a5="Both"></li>
             </ol>
         </section>
 <!-- another section for results screen and initial input-->

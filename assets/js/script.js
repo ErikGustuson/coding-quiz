@@ -1,5 +1,17 @@
 // TODO: starting screen with button to select start
+var startButton = document.querySelector(".start-button")
+var startingPage = document.querySelector(".starting-page")
+
 // TODO: have listener to watch for button press to start timer and display first question
+startButton.addEventListener("click", function() {
+    document.getElementById("starting-page").style.display = "none";
+    document.getElementById("question-page").style.display = "block";
+})
+
+
+
+
+
 // TODO: write at least 10 different question with 4 possible answers ?data strings so that i can update ordered list in html
 // TODO: make sure that correct answers are not in same location on list 
     // (create a class for each answer and each display could have true or false value)

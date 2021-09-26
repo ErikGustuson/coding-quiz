@@ -2,10 +2,27 @@
 var startButton = document.querySelector(".start-button")
 var startingPage = document.querySelector(".starting-page")
 
+
 // TODO: have listener to watch for button press to start timer and display first question
+var time = document.querySelector(".time");
+var secondsLeft = 60;
+
+function setTimer() {
+    var timerCount = setInterval(function() {
+        secondsLeft--;
+        time.textContent = secondsLeft + " seconds and times up!";
+
+        if(secondsLeft === 0) {
+            clearInterval(timerCount);
+            displayResults();
+        }
+    }, 1000);
+}
+
 startButton.addEventListener("click", function() {
     document.getElementById("starting-page").style.display = "none";
     document.getElementById("question-page").style.display = "block";
+    setTimer()
 })
 
 

@@ -16,6 +16,10 @@ body {
     align-items: center;
 }
 
+.time {
+    text-align: right;
+}
+
 #starting-page {
     display: block;
 }

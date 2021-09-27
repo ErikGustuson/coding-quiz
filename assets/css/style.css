@@ -1,55 +1,55 @@
 :root {
-    --darkbackground: #583D72;
-    --lightbackground: #FF8474;
-    --darktext: #9F5F80;
-    --lighttext: #FFC996;
-    --color-hover: blue;
-    --font-fam: 'Courier New', Courier, monospace;
-    --shadow-color: purple;
+  --darkbackground: #583d72;
+  --lightbackground: #ff8474;
+  --darktext: #9f5f80;
+  --lighttext: #ffc996;
+  --color-hover: blue;
+  --font-fam: "Courier New", Courier, monospace;
+  --shadow-color: purple;
 }
 
 body {
-    background-color: var(--darkbackground);
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+  background-color: var(--darkbackground);
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 .time {
-    text-align: right;
+  text-align: right;
 }
 
 #starting-page {
-    display: block;
+  display: block;
 }
 
 #question-page {
-    display: none;
+  display: none;
 }
 
 .answers {
-    margin: 30px;
-    padding: 20px;
+  margin: 30px;
+  padding: 20px;
 }
 
 #result-page {
-    display: none;
+  display: none;
 }
 
 #highscore-page {
-    display: none;
+  display: none;
 }
-
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
-    background-color: var(--lightbackground);
-    padding: 20px;
-    color: var(--darkbackground);
-    font-family: var(--font-fam);
-    font-weight: bolder;
-    text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  background-color: var(--lightbackground);
+  padding: 20px;
+  color: var(--darkbackground);
+  font-family: var(--font-fam);
+  font-weight: bolder;
+  text-align: center;
 }
+

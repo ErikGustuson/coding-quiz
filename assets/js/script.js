@@ -3,8 +3,9 @@ var firstQuestion = [
   "What was JavaScript initially called?",
   "Vanilla",
   "Caramel",
-  "Mocha",
+  "Mocha", 
   "Latte",
+  "third-possible",
 ];
 var secondQuestion = [
   "In a function what do you put the parameters within?",
@@ -12,6 +13,7 @@ var secondQuestion = [
   "{ }",
   "[ ]",
   '" "',
+  "first-possible",
 ];
 var thirdQuestion = [
   "Who created JavaScript?",
@@ -19,6 +21,7 @@ var thirdQuestion = [
   "Erik Gustuson",
   'Yukihiro "Matz" Matsumoto',
   "Brendon Eich",
+  "fourth-possible",
 ];
 var forthQuestion = [
   "Which Method returns string to upper case?",
@@ -26,6 +29,7 @@ var forthQuestion = [
   "toUpperCase()",
   "changeCase(upper)",
   "None of the above",
+  "second-possible",
 ];
 var fifthQuestion = [
   "Is JavaScript of frontend or backend Language?",
@@ -33,12 +37,13 @@ var fifthQuestion = [
   "Backend",
   "Neither",
   "Both",
+  "fourth-possible",
 ];
 
 // var list for each page to bae able to display or hide
 var startButton = document.getElementById("start-button");
 var startingPage = document.getElementById("starting-page");
-var questionPage = document.getElementById("quesiton-page");
+var questionPage = document.getElementById("question-page");
 var resultsPage = document.getElementById("results-page");
 var highscorePage = document.getElementById("highscore-page");
 
@@ -47,36 +52,77 @@ var time = document.querySelector(".time");
 var secondsLeft = 60;
 var score = 0;
 
-startButton.addEventListener("click", runQuiz)
+function setTimer() {
+  var timerCount = setInterval(function () {
+    secondsLeft--;
+    time.textContent = secondsLeft + " seconds and times up!";
+
+    if (secondsLeft <= 0) {
+      clearInterval(timerCount);
+      displayResults();
+    }
+  }, 1000);
+}
+
+startButton.addEventListener("click", runQuiz);
+startButton.addEventListener("click", setTimer);
+
+var questionNumber = 0
+var allQuestions = [firstQuestion, secondQuestion, thirdQuestion, forthQuestion, fifthQuestion];
+
+allQuestions[questionNumber];
+
+var displayQuestion = document.getElementById("question");
+var firstPossible = document.getElementById("first-possible");
+var secondPossible = document.getElementById("second-possible");
+var thirdPossible = document.getElementById("third-possible");
+var fourthPossible = document.getElementById("fourth-possible");
+
+
+function showQuestionAndAnswers(currentQuestion) {
+    displayQuestion.textContent = currentQuestion[0]
+    firstPossible.textContent = currentQuestion[1]
+    secondPossible.textContent = currentQuestion[2]
+    thirdPossible.textContent = currentQuestion[3]
+    fourthPossible.textContent = currentQuestion[4]
+}
+
+showQuestionAndAnswers(allQuestions[questionNumber])
+
+firstPossible.addEventListener("click", selectAnswer)
+secondPossible.addEventListener("click", selectAnswer)
+thirdPossible.addEventListener("click", selectAnswer)
+fourthPossible.addEventListener("click", selectAnswer)
 
 function runQuiz() {
-    startingPage.style.display = "none";
-    document.getElementById("question-page").style.display = "block";
-
-  function setTimer() {
-    var timerCount = setInterval(function () {
-      secondsLeft--;
-      time.textContent = secondsLeft + " seconds and times up!";
-
-      if (secondsLeft <= 0) {
-        clearInterval(timerCount);
-        displayResults();
-      }
-    }, 1000);
-  }
+  startingPage.style.display = "none";
+  questionPage.style.display = "block";
+  resultsPage.style.display = "none";
+  highscorePage.style.display = "none";
 }
+
+
+
+function selectAnswer(event) {
+    var currentId = event.target.id
+    console.log(currentId);
+    var correctAnswer = allQuestions[questionNumber][5]
+        if (currentId == correctAnswer) {
+            console.log("correct");
+            score++;
+            console.log(score)
+            questionNumber++;
+            showQuestionAndAnswers(allQuestions[questionNumber]);
+        } else {
+            secondsLeft = secondsLeft - 5;
+            alert("Oh no!!!\nWhere did those 5 seconds go!!!");
+        }
+}
+
+
 
 // startButton.addEventListener("click", function firstQuestion() {
 
-//   document.getElementById("starting-page").style.display = "none";
-//   document.getElementById("question-page").style.display = "block";
-//   setTimer();
-
-//   question.textContent = question.getAttribute("data-q1");
-//   firstAnswer.textContent = firstAnswer.getAttribute("data-a1");
-//   secondAnswer.textContent = secondAnswer.getAttribute("data-a1");
-//   thirdAnswer.textContent = thirdAnswer.getAttribute("data-a1");
-//   forthAnswer.textContent = forthAnswer.getAttribute("data-a1");
 
 //   for (let i = 0; i < answers.length; i++) {
 //     $("#answers").on("click", function(event) {

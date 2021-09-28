@@ -22,68 +22,30 @@
         the essence and please make sure to pick correctly or something awful
         might happen.
       </p>
-      <button class="start-button" type="button">Start Quiz!!!</button>
+      <button id="start-button" type="button">Start Quiz!!!</button>
     </section>
+
     <!-- another section for the questions (start with the first queston displayed)-->
     <section id="question-page">
-      <h3
-        id="question"
-        data-q1="What was JavaScript initially called?"
-        data-q2="In a function what do you put the parameters within?"
-        data-q3="Who created JavaScript?"
-        data-q4="Which Method returns string to upper case?"
-        data-q5="Is JavaScript of frontend or backend Language?"
-        correct-1="3. Mocha"
-      ></h3>
-      <ol id="answers">
-        <button
-          class="answers"
-          id="first-answer"
-          data-a1="1. Vanilla"
-          data-a2="1. ( )"
-          data-a3="1. James Gosling"
-          data-a4="1. toUpper()"
-          data-a5="1. Frontend"
-        ></button>
-        <button
-          class="answers"
-          id="second-answer"
-          data-a1="2. Caramel"
-          data-a2="2. { }"
-          data-a3="2. Erik Gustuson"
-          data-a4="2. toUpperCase()"
-          data-a5="2. Backend"
-        ></button>
-        <button
-          class="answers"
-          id="third-answer"
-          data-a1="3. Mocha"
-          data-a2="3. [ ]"
-          data-a3='3. Yukihiro "Matz" Matsumoto'
-          data-a4="3. changeCase(upper)"
-          data-a5="3. neither"
-        ></button>
-        <button
-          class="answers"
-          id="forth-answer"
-          data-a1="4. Latte"
-          data-a2='4. " "'
-          data-a3="4. Brendan Eich"
-          data-a4="4. None of the above"
-          data-a5="4. Both"
-        ></button>
+      <h3 id="question"></h3>
+      <ol id="all-answers">
+        <button id="first-possible" class="answer"></button>
+        <button id="second-possible" class="answer"></button>
+        <button id="third-possible" class="answer"></button>
+        <button id="forth-possible" class="answer"></button>
       </ol>
     </section>
+
     <!-- another section for results screen and initial input-->
-    <section id="result-page"></section>
+    <section id="results-page"></section>
+
     <!-- one last section for listing high scores and option to start quiz -->
-    <section class="highscore-page"></section>
+    <section id="highscore-page"></section>
 
   
     <footer>
       <p>Created by Erik (Gus) Gustuson</p>
     </footer>
     <script src="assets/js/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   </body>
 </html>

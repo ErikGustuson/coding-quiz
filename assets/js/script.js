@@ -119,6 +119,7 @@ fourthPossible.addEventListener("click", selectAnswer);
 function runQuiz() {
   questionNumber = 0;
   score = 0;
+  setTimer();
   startingPage.style.display = "none";
   questionPage.style.display = "block";
   resultsPage.style.display = "none";
@@ -168,32 +169,37 @@ var initials = document.getElementById("initials-input");
 
 // log initials and score to string and save to local storage so they can return to game
 submitInitials.addEventListener("click", function (event) {
+  event.preventDefault();
   var lastScore = {
     initials: initials.value.trim(),
-    score: score.value,
+    score: score,
   };
-  event.preventDefault();
+
   console.log(initials);
   console.log(score);
-  localStorage.setItem("score", JSON.stringify(score));
-  localStorage.setItem("initials", JSON.stringify(initials));
+  localStorage.setItem("lastScore", JSON.stringify(lastScore));
   displayHighscore();
 });
 
+// auto go to high score screen, pull from local storage to display records
 function displayHighscore() {
   startingPage.style.display = "none";
   questionPage.style.display = "none";
   resultsPage.style.display = "none";
   highscorePage.style.display = "block";
-    var lastScore = JSON.parse(localStorage.getItem("last-score"));
-   
-    if ()
+  var lastScore = JSON.parse(localStorage.getItem("lastScore"));
+  if (lastScore !== null) {
+    document.getElementById("saved-player").innerHTML = lastScore.initials;
+    document.getElementById("saved-score").innerHTML = lastScore.score;
+  } else {
+    return;
+  }
 }
 
-// TODO: auto go to high score screen, pull from local storage to display records
+
 // TODO: have link that can view high score at any time (optional) also button that clears high score (optional)
-// TODO: on high score screen have button to start quiz which will start function to repeat quiz
+// TODO: on high score screen have button to start quiz which will start function to repeat quiz (optional)
 //
 // make sure that correct answers are not in same location on list ?possible set values of different answers to true or false
 // (create a class for each answer and each display could have true or false value)
-// Ended up setting up data- attributs and then selecting which attributes i need to select
+// Ended up setting up data- attributs and then selecting which attributes i need to select (this did not work and had to start from scratch using arrays)

@@ -62,22 +62,22 @@ var highscorePage = document.getElementById("highscore-page");
 var time = document.querySelector(".time");
 var secondsLeft = 60;
 var score = 0;
-var timerCount
+var timerCount;
 
 function setTimer() {
-    timerCount = setInterval(function () {
+  timerCount = setInterval(function () {
     secondsLeft--;
     time.textContent = secondsLeft + " seconds and times up!";
 
     if (secondsLeft <= 0) {
       clearInterval(timerCount);
-      displayResults();
+      gameOver();
     }
   }, 1000);
 }
 
 function stopTimer() {
-    clearInterval(timerCount)
+  clearInterval(timerCount);
 }
 
 startButton.addEventListener("click", runQuiz);
@@ -117,6 +117,8 @@ thirdPossible.addEventListener("click", selectAnswer);
 fourthPossible.addEventListener("click", selectAnswer);
 
 function runQuiz() {
+  questionNumber = 0;
+  score = 0;
   startingPage.style.display = "none";
   questionPage.style.display = "block";
   resultsPage.style.display = "none";
@@ -137,40 +139,57 @@ function selectAnswer(event) {
     console.log(score);
     questionNumber++;
     if (questionNumber == allQuestions.length) {
-        stopTimer();
-        displayResults();
-        return
+      gameOver();
+      return;
     }
     showQuestionAndAnswers(allQuestions[questionNumber]);
   } else {
     secondsLeft = secondsLeft - 5;
     alert("Oh no!!!\nWhere did those 5 seconds go!!!");
   }
-} 
+}
 
+// end game condition leads to score screen where initials can be stored
 function gameOver() {
-    displayResults();
-    stopTimer();
+  displayResults();
+  stopTimer();
 }
 
 function displayResults() {
-    startingPage.style.display = "none";
-    questionPage.style.display = "none";
-    resultsPage.style.display = "block";
-    highscorePage.style.display = "none";
+  document.getElementById("round-score").innerHTML = score;
+  startingPage.style.display = "none";
+  questionPage.style.display = "none";
+  resultsPage.style.display = "block";
+  highscorePage.style.display = "none";
 }
 
-// TODO: end game condition leads to score screen where initials can be stored
-// if (secondsLeft <= 0 || score == 5) {
-//     questionNumber = 0;
-//     startingPage.style.display = "none";
-//     questionPage.style.display = "none";
-//     resultsPage.style.display = "block";
-//     highscorePage.style.display = "none";
-// }
+var submitInitials = document.getElementById("submit-initials");
+var initials = document.getElementById("initials-input");
 
+// log initials and score to string and save to local storage so they can return to game
+submitInitials.addEventListener("click", function (event) {
+  var lastScore = {
+    initials: initials.value.trim(),
+    score: score.value,
+  };
+  event.preventDefault();
+  console.log(initials);
+  console.log(score);
+  localStorage.setItem("score", JSON.stringify(score));
+  localStorage.setItem("initials", JSON.stringify(initials));
+  displayHighscore();
+});
 
-// TODO: log initials and score to string and save to local storage so they can return to game
+function displayHighscore() {
+  startingPage.style.display = "none";
+  questionPage.style.display = "none";
+  resultsPage.style.display = "none";
+  highscorePage.style.display = "block";
+    var lastScore = JSON.parse(localStorage.getItem("last-score"));
+   
+    if ()
+}
+
 // TODO: auto go to high score screen, pull from local storage to display records
 // TODO: have link that can view high score at any time (optional) also button that clears high score (optional)
 // TODO: on high score screen have button to start quiz which will start function to repeat quiz

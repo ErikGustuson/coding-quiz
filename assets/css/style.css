@@ -12,33 +12,140 @@ body {
   background-color: var(--darkbackground);
   width: 100vw;
   height: 100vh;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .time {
-  text-align: right;
+  position: absolute;
+  color: var(--lighttext);
+  font-size: 20px;
+  bottom: 100px;
 }
 
 #starting-page {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 60%;
+  margin-bottom: 100px;
+  background-color:var(--darktext);
+  justify-content: space-around;
+  align-content: center;
+  text-align: center;
+  box-shadow: 15px 25px 8px var(--lighttext);
+  border-radius: 15px;
+  border:outset 5px black;
+}
+
+#starting-page h2 {
+  font-size: 40px;
+  }
+
+#starting-page p {
+  margin: 35px;
+  font-size: 20px;
+}
+
+#start-button {
+  position: relative;
+  width: 200px;
+  height: 75px;
+  bottom: 40px;
+  align-self: center;
+  background-color: var(--darkbackground);
+  color: var(--lighttext);
+  font-size: 30px;
 }
 
 #question-page {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 60%;
+  margin-bottom: 100px;
+  background-color:var(--darktext);
+  justify-content: space-around;
+  align-content: center;
+  text-align: center;
+  box-shadow: 15px 25px 8px var(--lighttext);
+  border-radius: 15px;
+  border:outset 5px black;
   display: none;
 }
 
-.answers {
-  margin: 30px;
+#question {
+  font-size: 40px;
   padding: 20px;
 }
 
+#all-answers {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.answer {
+  margin: 30px;
+  padding: 20px;
+  height: 100px;
+  width: 200px;
+  font-size: 20px;
+  background-color: var(--darkbackground);
+  color: var(--lighttext);
+}
+
 #results-page {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 60%;
+  margin-bottom: 100px;
+  background-color:var(--darktext);
+  justify-content: space-around;
+  align-content: center;
+  text-align: center;
+  box-shadow: 15px 25px 8px var(--lighttext);
+  border-radius: 15px;
+  border:outset 5px black;
   display: none;
 }
 
+#results-page h3 {
+  font-size: 45px;
+  padding: 10px;
+}
+
+#results-page p {
+  font-size: 35px;
+  padding: 10px;
+}
+
 #highscore-page {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 60%;
+  margin-bottom: 100px;
+  background-color:var(--darktext);
+  justify-content: space-around;
+  align-content: center;
+  text-align: center;
+  box-shadow: 15px 25px 8px var(--lighttext);
+  border-radius: 15px;
+  border:outset 5px black;
   display: none;
+}
+
+#highscore-page h4 {
+  font-size: 45px;
+  padding: 10px;
+}
+
+#highscore-page p {
+  font-size: 35px;
+  padding: 10px;
 }
 
 footer {

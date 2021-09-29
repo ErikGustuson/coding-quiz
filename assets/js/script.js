@@ -119,7 +119,6 @@ fourthPossible.addEventListener("click", selectAnswer);
 function runQuiz() {
   questionNumber = 0;
   score = 0;
-  setTimer();
   startingPage.style.display = "none";
   questionPage.style.display = "block";
   resultsPage.style.display = "none";
@@ -195,7 +194,6 @@ function displayHighscore() {
     return;
   }
 }
-
 
 // TODO: have link that can view high score at any time (optional) also button that clears high score (optional)
 // TODO: on high score screen have button to start quiz which will start function to repeat quiz (optional)
